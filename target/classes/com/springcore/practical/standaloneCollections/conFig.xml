@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:context ="http://www.springframework.org/schema/context"
+  xmlns:p="http://www.springframework.org/schema/p"
+  
+  
+  
+  xmlns:util="http://www.springframework.org/schema/util"
+  xmlns:map="http://www.springframework.org/schema/map"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+  http://www.springframework.org/schema/beans/spring-beans.xsd
+  http://www.springframework.org/schema/context
+  http://www.springframework.org/schema/context/spring-context.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd
+
+http://www.springframework.org/schema/map http://www.springframework.org/schema/util/spring-map-2.0.xsd">
+ 
+  <util:list list-class = "java.util.LinkedList" id="myfriends"> 
+  <value>Abhishek</value>
+  <value>Naruto</value>
+  <value>goku</value></util:list>
+ 
+   <util:map map-class="java.util.HashMap" id="courseFee">
+   <entry key = "SpringFramework" value="5000"/>
+   <entry key = "djangoFramework" value="2000"/>
+   </util:map>
+   
+   <util:properties id = "dbConfig">
+   <prop key="driver">com.mysql.db</prop>
+   </util:properties>
+ 
+  <bean class = "com.springcore.practical.standaloneCollections.Person" name="person" destroy-method="destroy">
+ 
+ 
+ <!--   <property name = "friends">
+  <ref bean = "myfriend"/></property> -->
+  
+  <property name = "friends" ref = "myfriends"/>
+  <property name="courseFee" ref = "courseFee"/>
+  <property name="properties" ref = "dbConfig"></property>
+  </bean>
+  
+  </beans>
